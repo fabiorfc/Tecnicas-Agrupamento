@@ -7,7 +7,6 @@ import pandas as pd
 from sklearn.preprocessing import StandardScaler #Normalozacao z-score
 from sklearn.cluster import KMeans
 from sklearn.manifold import TSNE
-#from sklearn.datasets import make_blobs
 import matplotlib.pyplot as plt
 
 """----------------------------------------------------------------------------
@@ -87,25 +86,5 @@ visualizacao
 plt.scatter(x=visualizacao[:,0],
             y=visualizacao[:,1])
 
-
-"""
-# Visualizacao via make_blobs
-dados, _ = make_blobs(n_samples=1000, n_features=2, random_state=7)
-dados = pd.DataFrame(dados, columns=['coluna1', 'coluna2'])
-dados.head()
-plt.scatter(x=dados.coluna1, y=dados.coluna2)
-
-modelo = KMeans(n_clusters=3)
-grupos = modelo.fit_predict(dados)
-
-centroides = modelo.cluster_centers_
-plt.scatter(dados.coluna1, dados.coluna2,
-            c=grupos,
-           cmap='viridis')
-
-plt.scatter(centroides[:, 0], centroides[:, 1],
-           marker='X', s=169, linewidths=5,
-           color='g', zorder=8)
-"""
 
 
